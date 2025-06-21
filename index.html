@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Independent environmental consultancy delivering support in regulatory compliance, impact assessment, waste management, and sustainability planning.">
+  <title>eConsulting Malta</title>
+  <style>
+        .service-details {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+    }
+    .service-details.show {
+      max-height: 500px;
+      opacity: 1;
+      margin-top: 1rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9fbfd;
+  color: #2a2a2a;
+  line-height: 1.8;
+}
+    header {
+      background: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    header img.logo {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      background-color: transparent;
+    }
+    nav a {
+      color: #005ea8;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: opacity 0.3s;
+    }
+    nav a:hover { opacity: 0.7; }
+    .hero {
+      background: url('hero banner.png') center/cover no-repeat;
+      background-attachment: fixed;
+      color: #f3f3f3;
+      padding: 5rem 2rem 3rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      font-family: 'Segoe UI', sans-serif;
+      color: #ffffff;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-family: 'Segoe UI', sans-serif;
+      color: #f1f1f1;
+    }
+    .btn {
+      background: #f97316;
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    .btn:hover { background: #009ec3; }
+    section {
+      padding: 5rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+      position: relative;
+      z-index: 2;
+    }
+    h2 {
+      font-size: 2rem;
+      color: #005ea8;
+      margin-bottom: 2rem;
+      border-left: 4px solid #00b4d8;
+      padding-left: 1rem;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-left: 4px solid #00b4d8;
+      transition: background 0.3s, transform 0.3s;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .service-card:hover {
+      background: #f1f9fd;
+      transform: translateY(-4px);
+    }
+    .contact-form {
+      background: white;
+      padding: 2rem;
+      border-left: 4px solid #00b4d8;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .contact-form label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .contact-form button {
+      margin-top: 1.5rem;
+      background-color: #00b4d8;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .contact-form button:hover {
+      background-color: #009ec3;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #f1f9fd;
+      color: #1f2d3d;
+      font-size: 0.9rem;
+    }
+    .details summary:hover {
+      background-color: #f1f9fd;
+      transition: background-color 0.3s ease;
+    }
+    .service-image {
+      width: 100%;
+      max-width: 600px;
+      margin: 1rem 0;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      display: block;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.6));
+      z-index: 1;
+      pointer-events: none;
+      mix-blend-mode: lighten;
+    }
+    .hero h1,
+    .hero p,
+    .hero .btn {
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: 768px) {
+      .hero {
+        padding: 3rem 1rem 2rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      section {
+        padding: 3rem 1rem;
+      }
+    }
+
+    .dynamic-cta {
+  position: absolute;
+  right: 1.5rem;
+  top: 0.75rem;
+  transform: none;
+  background: #f97316;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease;
+  z-index: 3;
+  display: inline-block;
+}
+    .dynamic-cta:hover {
+      background: #009ec3;
+    }
+  
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="#"><img src="eco_logo_2025.png" alt="eConsulting Logo" class="logo"></a>
+    </div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero parallax">
+    <h1>Environmental Management. Sustainable Solutions.</h1>
+    <p>Bespoke consultancy for compliance, resource efficiency, and long-term environmental strategy.</p>
+    <a class="btn" href="#contact">Start the Conversation</a>
+  </div>
+
+<section style="text-align: center; padding: 3rem 2rem; background-color: #f7fafc; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
+  <p style="font-size: 1.15rem; max-width: 800px; margin: auto; color: #2a2a2a;">
+    From concept to completion — @econsulting provides expert environmental consultancy across all stages of project development, whether you're navigating feasibility, permitting, implementation, or aftercare. Drawing on over 25 years of experience across diverse sectors, @econsulting delivers tailored, practical, and forward-thinking solutions for every project phase.
+  </p>
+</section>
+
+<section id="services">
+    <h2>Services</h2>
+    <div class="accordion">
+      <details>
+        <summary style="position: relative;"><span class="summary-text">Environmental Impact & Planning</span></summary>
+        <ul>
+          <li>Environmental assessment and reporting</li>
+          <li>Coordination and authoring of Environmental Impact Assessments (EIA)</li>
+          <li>Review of strategic environmental data and land-use policy</li>
+          <li>Expert analysis for development projects (particularly in coastal, marine, and industrial zones)</li>
+        </ul>
+
+</details>
+      <details>
+        <summary style="position: relative;"><span class="summary-text">Environmental Permitting & Regulatory Compliance</span></summary>
+        <p>Preparation, submission, and follow-up of:</p>
+<ul>
+          <li>IPPC permits</li>
+          <li>Waste management permits</li>
+          <li>Environmental permits</li>
+          <li>Transfrontier Shipment (TFS) permit advisory</li>
+          <li>Assistance in development permit applications</li>
+          <li>Regulatory interpretation, liaison with authorities, and compliance gap analysis</li>
+        </ul>
+      </details>
+      <details>
+        <summary style="position: relative;"><span class="summary-text">Waste Management & Circular Economy</span></summary>
+        <p>Circular economy strategy to align operations with EU sustainability goals</p>
+        <ul>
+          <li>Waste characterisation and classification, including hazard analysis</li>
+          <li>Identification and sourcing of cost effective waste management solutions</li>
+          <li>Design of internal waste management systems for compliance with EU Waste Framework Directive</li>
+          <li>Management of waste data, and assistance in waste reporting</li>
+          <li>Waste audits to support permit compliance and efficiency</li>
+          <li>Support with extended producer responsibility (EPR)</li>
+        </ul>
+      </details>
+      <details>
+        <summary style="position: relative;"><span class="summary-text">Environmental Monitoring & Contaminant Strategy</span></summary>
+        <ul>
+          <li>Design and implementation of environmental monitoring programmes</li>
+          <li>Interpretation and management of ecological, air, water, and soil quality data</li>
+          <li>Evaluation of contaminated sites, including strategy for soil contamination investigation, environmental investigation and reporting, and remediation planning</li>
+        </ul>
+      </details>
+      <details>
+        <summary style="position: relative;"><span class="summary-text">Management System Integration & Certification Support</span></summary>
+        <p>Preparation for ISO 14001:2015 and ISO 9001:2015 certification:</p>
+        <ul>
+          <li>System design tailored to operational context</li>
+          <li>Documentation development and internal implementation</li>
+          <li>Gap analysis and internal auditing</li>
+          <li>Assistance throughout the certification cycle</li>
+          <li>EMAS (Eco-Management and Audit Scheme) guidance and SME support</li>
+        </ul>
+      </details>
+      <details>
+        <summary style="position: relative;"><span class="summary-text">Corporate Environmental Advisory</span></summary>
+        <ul>
+          <li>Scientific support for ESG strategy, disclosures, and implementation</li>
+          <li>Internal environmental policy development</li>
+          <li>Guidance on sustainability strategy alignment with EU frameworks and investor expectations</li>
+        </ul>
+      </details>
+      <details>
+        <summary style="position: relative;"><span class="summary-text">Training & Awareness</span></summary>
+        <ul>
+          <li>Development of staff training programmes (including digital and on-site formats)</li>
+          <li>On-site waste management awareness sessions</li>
+          <li>Practical workshops on regulatory obligations, and practical environmental solutions</li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>An independent environmental consultancy with over 20 years of high-level regulatory, technical, and strategic experience across public and private sectors. Actively assisting clients in energy, manufacturing, waste, construction, oil and gas, and government with bespoke services.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-form">
+      <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+      <p style="margin-top: 2rem; font-size: 1.1rem;">
+        Or connect with us on LinkedIn:<br>
+        <a href="https://www.linkedin.com/in/michael-sant-bb881719" target="_blank" rel="noopener" style="color: #005ea8; font-weight: 500;">Visit our LinkedIn profile</a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 econsulting Malta</p>
+  </footer>
+
+  <script>
+  const logoLink = document.querySelector('.logo-container a');
+  if (logoLink) {
+    logoLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.querySelectorAll('details').forEach(detail => {
+        detail.removeAttribute('open');
+      });
+    });
+  }
+
+  const cta = document.createElement('a');
+  cta.href = '#contact';
+  cta.textContent = "Let's Talk";
+  cta.className = 'dynamic-cta';
+
+  const detailsElements = document.querySelectorAll('details');
+  detailsElements.forEach(detail => {
+    detail.addEventListener('toggle', () => {
+      if (detail.open) {
+        document.querySelectorAll('.dynamic-cta').forEach(el => el.remove());
+        const summary = detail.querySelector('summary');
+if (summary) {
+  document.querySelectorAll('.dynamic-cta').forEach(el => el.remove());
+  summary.appendChild(cta);
+}
+      }
+    });
+  });
+</script>
+</body>
+</html>
